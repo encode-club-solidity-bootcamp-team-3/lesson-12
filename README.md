@@ -1,108 +1,110 @@
-# Lesson 9 - MyERC20.sol and MyERC721.sol
+# Lesson 10 - TokenSale.sol
 
-## Quickstart with OpenZeppelin wizard
+## Challenge explanation
 
-* Overview about Ethereum Improvement Proposals (EIPs)
-* Overview about Application-level standards and conventions (ERCs)
-* Explain about OpenZeppelin Contracts library
-* (Review) Objects in smart contracts
-* Inheritance overview
-* Overview about ERC20
-* Overview about ERC721
-* Using OpenZeppelin wizard
+* Smart Contract Features
+  * Buy ERC20 tokens with ETH for a fixed ratio
+    * Ratio _r_ means that 1 ETH should buy _r_ tokens
+  * Withdraw ETH by burning the ERC20 tokens at the contract
+  * Mint a new ERC721 for a configured price
+    * Price _p_ means that 1 NFT should cost _p_ tokens
+  * Allow users to burn their NFTs to recover half of the purchase price
+  * Update owner withdrawable amount whenever a NFT is sold
+  * Allow owner to withdraw tokens from the contract
+    * Only half of sales value is available for withdraw
+* Architecture overview
+* Contract external calls
 
-### References
-<https://eips.ethereum.org/>
+## Tests layout
 
-<https://eips.ethereum.org/erc>
-
-<https://docs.openzeppelin.com/contracts/4.x/>
-
-<https://docs.openzeppelin.com/contracts/4.x/erc20>
-
-<https://docs.openzeppelin.com/contracts/4.x/erc721>
-
-<https://docs.soliditylang.org/en/latest/contracts.html#inheritance>
-
-<https://solidity-by-example.org/inheritance/>
-
-<https://docs.openzeppelin.com/contracts/4.x/wizard>
-
-### Plain ERC20 Code reference
-
-        // SPDX-License-Identifier: MIT
-        pragma solidity >=0.7.0 <0.9.0;
-
-        import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
-        contract MyToken is ERC20 {
-            constructor() ERC20("MyToken", "MTK") {}
-        }
-
-### Plain ERC721 Code reference
-
-        // SPDX-License-Identifier: MIT
-        pragma solidity >=0.7.0 <0.9.0;
-
-        import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-
-        contract MyToken is ERC721 {
-            constructor() ERC721("MyToken", "MTK") {}
-        }
-
-## Contract structure
-
-* Syntax about inheritance
-* Overview about OpenZeppelin features for ERC20 and ERC721
-* Overview about OpenZeppelin features for Access Control
-* Overview about OpenZeppelin utilities and components
-* Adding minting feature
-* Adding RBAC feature
+* (Review) TDD methodology
+* Best practices on external calls
+* Dealing with decimals and divisions
+  * Shifting decimal points
+  * Underflow
+  * Overflow
+* (Review) Test syntax
+* (Review) Positive and negative tests
+* Integration tests
 
 ### References
-<https://www.npmjs.com/package/@openzeppelin/contracts>
+<https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/>
 
-<https://docs.openzeppelin.com/contracts/4.x/extending-contracts>
+<https://docs.soliditylang.org/en/latest/types.html#division>
 
-<https://docs.openzeppelin.com/contracts/4.x/access-control>
+<https://github.com/wissalHaji/solidity-coding-advices/blob/master/best-practices/rounding-errors-with-division.md>
 
-## Operating the contracts with scripts
+### Test code reference
 
-* (Review) Script operation
-* (Review) Accounts and funding
-* (Review) Providers
-* (Review) Async operations
-* (Review) Running scripts on test environment
-* (Review) Contract factory and json imports
-* (Review) Transaction receipts and async complexities when running onchain
+    import { expect } from "chai";
+    import { ethers } from "hardhat";
 
-## Events with solidity
+    describe("NFT Shop", async () => {
+      beforeEach(async () => {});
 
-* Event syntax
-* Event storage
-* Event indexing
-* Topics and filters
-* Transaction structure
-* State changes with events
+      describe("When the Shop contract is deployed", async () => {
+        it("defines the ratio as provided in parameters", async () => {
+          throw new Error("Not implemented");
+        });
+
+        it("uses a valid ERC20 as payment token", async () => {
+          throw new Error("Not implemented");
+        });
+      });
+
+      describe("When a user buys an ERC20 from the Token contract", async () => {
+        beforeEach(async () => {});
+
+        it("charges the correct amount of ETH", async () => {
+          throw new Error("Not implemented");
+        });
+
+        it("gives the correct amount of tokens", async () => {
+          throw new Error("Not implemented");
+        });
+      });
+
+      describe("When a user burns an ERC20 at the Shop contract", async () => {
+        it("gives the correct amount of ETH", async () => {
+          throw new Error("Not implemented");
+        });
+
+        it("burns the correct amount of tokens", async () => {
+          throw new Error("Not implemented");
+        });
+      });
+
+      describe("When a user buys an NFT from the Shop contract", async () => {
+        it("charges the correct amount of ERC20 tokens", async () => {
+          throw new Error("Not implemented");
+        });
+
+        it("gives the correct NFT", async () => {
+          throw new Error("Not implemented");
+        });
+      });
+
+      describe("When a user burns their NFT at the Shop contract", async () => {
+        it("gives the correct amount of ERC20 tokens", async () => {
+          throw new Error("Not implemented");
+        });
+      });
+
+      describe("When the owner withdraws from the Shop contract", async () => {
+        it("recovers the right amount of ERC20 tokens", async () => {
+          throw new Error("Not implemented");
+        });
+
+        it("updates the owner pool account correctly", async () => {
+          throw new Error("Not implemented");
+        });
+      });
+    });
 
 ### References
-<https://docs.soliditylang.org/en/latest/contracts.html#events>
+<https://fravoll.github.io/solidity-patterns/>
 
-<https://docs.ethers.org/v6/api/contract/#ContractEventName>
-
-<https://docs.ethers.org/v6/api/contract/#BaseContract-on>
-
-<https://docs.ethers.org/v6/api/contract/#BaseContract-queryFilter>
-
-
-## Watching for events in tests
-
-* Event syntax with Hardhat Chai Matchers
-* Triggering an event
-* Checking arguments
-
-### References
-<https://hardhat.org/hardhat-chai-matchers/docs/overview#events>
+<https://dev.to/jamiescript/design-patterns-in-solidity-1i28>
 
 ---
 
