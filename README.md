@@ -1,6 +1,6 @@
-# Lesson 10 - TokenSale.sol
+# Lesson 11 - Tests for TokenSale.sol
 
-## Challenge explanation
+## (Review) Challenge explanation
 
 * Smart Contract Features
   * Buy ERC20 tokens with ETH for a fixed ratio
@@ -15,93 +15,22 @@
 * Architecture overview
 * Contract external calls
 
-## Tests layout
+## Completing tests
 
-* (Review) TDD methodology
-* Best practices on external calls
-* Dealing with decimals and divisions
-  * Shifting decimal points
-  * Underflow
-  * Overflow
-* (Review) Test syntax
-* (Review) Positive and negative tests
-* Integration tests
+* (Review) Best practices on external calls
+* (Review) Dealing with decimals and divisions
+* (Review) Patterns
 
-### References
-<https://consensys.github.io/smart-contract-best-practices/development-recommendations/general/external-calls/>
+## References
+
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt>
+
+<https://docs.ethers.org/v6/api/utils/#about-maths>
+
+<https://docs.ethers.org/v6/migrating/#migrate-bigint>
 
 <https://docs.soliditylang.org/en/latest/types.html#division>
 
-<https://github.com/wissalHaji/solidity-coding-advices/blob/master/best-practices/rounding-errors-with-division.md>
-
-### Test code reference
-
-    import { expect } from "chai";
-    import { ethers } from "hardhat";
-
-    describe("NFT Shop", async () => {
-      beforeEach(async () => {});
-
-      describe("When the Shop contract is deployed", async () => {
-        it("defines the ratio as provided in parameters", async () => {
-          throw new Error("Not implemented");
-        });
-
-        it("uses a valid ERC20 as payment token", async () => {
-          throw new Error("Not implemented");
-        });
-      });
-
-      describe("When a user buys an ERC20 from the Token contract", async () => {
-        beforeEach(async () => {});
-
-        it("charges the correct amount of ETH", async () => {
-          throw new Error("Not implemented");
-        });
-
-        it("gives the correct amount of tokens", async () => {
-          throw new Error("Not implemented");
-        });
-      });
-
-      describe("When a user burns an ERC20 at the Shop contract", async () => {
-        it("gives the correct amount of ETH", async () => {
-          throw new Error("Not implemented");
-        });
-
-        it("burns the correct amount of tokens", async () => {
-          throw new Error("Not implemented");
-        });
-      });
-
-      describe("When a user buys an NFT from the Shop contract", async () => {
-        it("charges the correct amount of ERC20 tokens", async () => {
-          throw new Error("Not implemented");
-        });
-
-        it("gives the correct NFT", async () => {
-          throw new Error("Not implemented");
-        });
-      });
-
-      describe("When a user burns their NFT at the Shop contract", async () => {
-        it("gives the correct amount of ERC20 tokens", async () => {
-          throw new Error("Not implemented");
-        });
-      });
-
-      describe("When the owner withdraws from the Shop contract", async () => {
-        it("recovers the right amount of ERC20 tokens", async () => {
-          throw new Error("Not implemented");
-        });
-
-        it("updates the owner pool account correctly", async () => {
-          throw new Error("Not implemented");
-        });
-      });
-    });
-
-### References
 <https://fravoll.github.io/solidity-patterns/>
 
 <https://dev.to/jamiescript/design-patterns-in-solidity-1i28>
